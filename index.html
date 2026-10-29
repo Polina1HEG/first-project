@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Коза Мила и пять снежинок вдохновения</title>
+  </head>
+  <body class="ice">
+    <div class="progress" id="progress"></div>
+    <header class="topbar">
+      <div class="brand">✦ РОГА И ПИКСЕЛИ</div>
+      <div class="hud">
+        <span class="pill">❄ Найдено: <b id="foundCount">0/5</b></span
+        ><span class="pill">⌛ <b id="topTimer">03:00</b></span>
+      </div>
+    </header>
+    <div class="snow" id="snow"></div>
+    <main>
+      <section class="scene" id="start">
+        <div class="stars"></div>
+        <div class="wrap hero-grid">
+          <div>
+            <div class="eyebrow">
+              Новогодний интерактивный квест · 31 декабря, 21:00
+            </div>
+            <h1>Коза Мила и <em>пять снежинок</em> вдохновения</h1>
+            <p class="lead">
+              Мила — веб-дизайнер студии «Рога и пиксели». До полуночи осталось
+              всего три минуты квестового времени, а макет новогодней ярмарки
+              рассыпался на пиксели.
+            </p>
+            <div class="glass" style="margin-top: 20px; padding: 19px">
+              <strong>⚠ Макет рассыпался!</strong>
+              <p class="small" style="margin: 8px 0 0">
+                Собери 5 снежинок вдохновения — иначе сайт потеряет палитру,
+                сетку, иконки, шрифт и главную кнопку.
+              </p>
+            </div>
+            <h3 style="margin: 25px 0 0">Выбери образ сказки</h3>
+            <div class="choice">
+              <button class="theme-choice" data-theme="cozy">
+                <strong>🧣 Уютная сказка</strong
+                ><small>Молоко, корица, хвоя и ягодный акцент</small>
+              </button>
+              <button class="theme-choice active" data-theme="ice">
+                <strong>🌙 Ледяная сказка</strong
+                ><small>Ночной синий, серебро и льдистый голубой</small>
+              </button>
+            </div>
+            <p class="small" style="margin: 14px 0 0">
+              ✧ Сначала образ — потом детали.
+            </p>
+            <div class="actions">
+              <button
+                class="btn"
+                onclick="
+                  document
+                    .querySelector('#mapScene')
+                    .scrollIntoView({ behavior: 'smooth' })
+                "
+              >
+                Начать поиски ↓
+              </button>
+            </div>
+          </div>
+          <div
+            class="hero-art"
+            aria-label="Сказочная коза Мила в зимней мастерской"
+          >
+            <div class="moon"></div>
+            <div class="cabin"></div>
+            <div class="floating-note note1">✦ Новый год уже близко</div>
+            <div class="floating-note note2">✎ макет_v12_final-final</div>
+            <div class="floating-note note3">♡ вдохновение: 0%</div>
+            <div class="goat">🐐</div>
+            <div class="scarf">🧣</div>
+          </div>
+        </div>
+      </section>
+      <section class="scene" id="mapScene">
+        <div class="stars"></div>
+        <div class="wrap">
+          <div class="section-head">
+            <div class="eyebrow">Сцена 02 · Адвент-карта</div>
+            <h2>Ярмарка спрятала подсказки</h2>
+            <p class="lead">
+              Открой пять окошек на карте. В каждом спрятан предмет и маленький
+              урок дизайна. Некоторые находки проще заметить, когда наступает
+              ночь.
+            </p>
+          </div>
+          <div class="two-col">
+            <div class="map" id="marketMap">
+              <div class="map-title">Снежная ярмарка</div>
+              <div class="map-sub">Пять окошек · пять артефактов</div>
+              <div class="path"></div>
+              <button
+                class="window w1"
+                data-item="0"
+                aria-label="Найти гирлянду"
+              >
+                <span>✨</span><b class="num">1</b>
+              </button>
+              <button
+                class="window w2"
+                data-item="1"
+                aria-label="Найти варежку"
+              >
+                <span>🧤</span><b class="num">2</b>
+              </button>
+              <button
+                class="window w3"
+                data-item="2"
+                aria-label="Найти снежный шар"
+              >
+                <span>🔮</span><b class="num">3</b>
+              </button>
+              <button
+                class="window w4"
+                data-item="3"
+                aria-label="Найти ёлочный шар"
+              >
+                <span>🔴</span><b class="num">4</b>
+              </button>
+              <button
+                class="window w5"
+                data-item="4"
+                aria-label="Найти почтовый ящик"
+              >
+                <span>📮</span><b class="num">5</b>
+              </button>
+            </div>
+            <div class="glass">
+              <div class="eyebrow">Коллекция Милы</div>
+              <h3 style="margin-bottom: 18px">Снежинки вдохновения</h3>
+              <div class="artifact-list" id="artifactList">
+                <div class="artifact locked">
+                  <div class="artifact-icon">🎨</div>
+                  <div>
+                    <strong>Палитра-Снегирь</strong
+                    ><small
+                      >3 основных цвета + 1 акцент. Красный — только
+                      акцент.</small
+                    >
+                  </div>
+                </div>
+                <div class="artifact locked">
+                  <div class="artifact-icon">▦</div>
+                  <div>
+                    <strong>Сетка-Снежинка</strong
+                    ><small>Сетка 8 px; отступы 8 / 16 / 24 px.</small>
+                  </div>
+                </div>
+                <div class="artifact locked">
+                  <div class="artifact-icon">🔔</div>
+                  <div>
+                    <strong>Иконки-Колокольчики</strong
+                    ><small>Один стиль, толщина линии — 2 px.</small>
+                  </div>
+                </div>
+                <div class="artifact locked">
+                  <div class="artifact-icon">Aa</div>
+                  <div>
+                    <strong>Шрифт-Сугроб</strong
+                    ><small
+                      >Максимум два шрифта: выразительный заголовок и простой
+                      текст.</small
+                    >
+                  </div>
+                </div>
+                <div class="artifact locked">
+                  <div class="artifact-icon">🎉</div>
+                  <div>
+                    <strong>Таймер-Хлопушка</strong
+                    ><small
+                      >CTA заметен сразу; таймер создаёт мягкое
+                      напряжение.</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="whisper" id="mapWhisper">
+                Шёпот снежинки: нажми на окошко — вдруг там что-то блестит.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="scene" id="nightScene">
+        <div class="stars"></div>
+        <div class="wrap">
+          <div class="section-head">
+            <div class="eyebrow">Сцена 03 · Смена света</div>
+            <h2>День прячет, ночь открывает</h2>
+            <p class="lead">
+              На ярмарке погасли фонари. Переключи время суток: в темноте
+              проявится то, что не было видно днём.
+            </p>
+          </div>
+          <div class="night-panel">
+            <div class="glass">
+              <div class="timer-label">До полуночи</div>
+              <div class="timer-big" id="bigTimer">03:00</div>
+              <p class="small">
+                Свет мигает, а время ускоряется. У тебя есть ещё немного
+                времени, чтобы собрать недостающие детали.
+              </p>
+              <div class="daynight">
+                <div class="range-labels">
+                  <span>☀ День</span><span>🌙 Ночь</span>
+                </div>
+                <input
+                  class="range"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="0"
+                  id="timeSlider"
+                  aria-label="Переключить день и ночь"
+                />
+              </div>
+              <button class="btn secondary" id="whisperBtn">
+                ❄ Шёпот снежинки
+              </button>
+              <div class="whisper" id="whisperText">
+                «Смотри не только на то, что освещено. Иногда важное прячется в
+                тени…»
+              </div>
+            </div>
+            <div class="night-scene" id="nightIllustration">
+              <div class="scene-moon">☀️</div>
+              <div class="tree t1">🎄</div>
+              <div class="tree t2">🏠</div>
+              <div class="hidden-star">❄️</div>
+            </div>
+          </div>
+          <div class="actions">
+            <button
+              class="btn"
+              onclick="
+                document
+                  .querySelector('#finalScene')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+            >
+              К последней снежинке →
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="scene" id="finalScene">
+        <div class="stars"></div>
+        <div class="wrap">
+          <div class="section-head">
+            <div class="eyebrow">Сцена 04 · Последний рывок</div>
+            <h2>До полуночи — <em style="color: var(--accent)">00:10</em></h2>
+            <p class="lead">
+              Последний артефакт спрятан за главной кнопкой. Мила смотрит на
+              макет, на часы и на свою почти готовую ярмарку.
+            </p>
+          </div>
+          <div class="glass">
+            <div class="two-col">
+              <div>
+                <div style="font-size: 58px; margin-bottom: 12px">🎁</div>
+                <h3>Таймер-Хлопушка</h3>
+                <p class="small">
+                  CTA должен быть заметен сразу. Таймер создаёт мягкое
+                  напряжение, но не пугает пользователя. Найди последнюю
+                  снежинку и реши судьбу сайта.
+                </p>
+                <button class="btn" id="ctaFind">
+                  ✨ Главная кнопка — открыть
+                </button>
+              </div>
+              <div
+                style="
+                  border: 1px dashed var(--line);
+                  border-radius: 18px;
+                  padding: 24px;
+                  text-align: center;
+                  background: rgba(0, 0, 0, 0.12);
+                "
+              >
+                <div class="timer-label">Публикация ярмарки</div>
+                <div class="timer-big" id="finalTimer">00:10</div>
+                <p class="small">
+                  Готовность макета: <b id="readyPercent">0%</b>
+                </p>
+                <div
+                  style="
+                    height: 7px;
+                    border-radius: 99px;
+                    background: #ffffff20;
+                    overflow: hidden;
+                  "
+                >
+                  <div
+                    id="readyBar"
+                    style="
+                      height: 100%;
+                      width: 0;
+                      background: var(--accent);
+                      transition: width 0.4s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eyebrow" style="margin-top: 35px">
+            Сцена 05 · Развилка
+          </div>
+          <h2>Опубликовать?</h2>
+          <p class="lead">
+            У каждого решения свой финал. Выбери не идеальную кнопку — а свою
+            историю.
+          </p>
+          <div class="final-grid">
+            <div class="ending" id="endingA">
+              <div class="emoji">🚀</div>
+              <h3>Опубликовать сейчас</h3>
+              <p>
+                Ярмарка откроется вовремя. В макете останутся мелкие
+                шероховатости, зато кнопка работает, палитра радует, а гости уже
+                идут.
+              </p>
+              <button class="btn" onclick="chooseEnding('A')">
+                Открыть ярмарку
+              </button>
+            </div>
+            <div class="ending" id="endingB">
+              <div class="emoji">💎</div>
+              <h3>Дождаться идеала</h3>
+              <p>
+                Мила полирует ледяную версию. Сайт прекрасен, но часть гостей
+                уже ушла спать. В портфолио появится эффектный кейс и важный
+                урок.
+              </p>
+              <button class="btn secondary" onclick="chooseEnding('B')">
+                Ещё немного полировки
+              </button>
+            </div>
+          </div>
+          <div class="result" id="result">
+            <h3 id="resultTitle"></h3>
+            <p id="resultText"></p>
+            <button class="btn secondary" onclick="restart()">
+              ↻ Пройти квест ещё раз
+            </button>
+          </div>
+          <div class="footer">
+            ✦ «Рога и пиксели» · Даже самая волшебная сказка начинается с
+            хорошей сетки.
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status"></div>
+    <script>
+      const names = [
+        "Палитра-Снегирь",
+        "Сетка-Снежинка",
+        "Иконки-Колокольчики",
+        "Шрифт-Сугроб",
+        "Таймер-Хлопушка",
+      ];
+      const tips = [
+        "Палитра-Снегирь найдена! Три основных цвета и один акцент — красный пусть останется ягодкой, а не метелью.",
+        "Сетка-Снежинка найдена! Держись сетки 8 px и отступов 8 / 16 / 24 px — макет начнёт дышать.",
+        "Иконки-Колокольчики найдены! Один визуальный стиль и толщина линии 2 px объединяют интерфейс.",
+        "Шрифт-Сугроб найден! Двух шрифтов достаточно: выразительный заголовок и спокойный читаемый текст.",
+        "Таймер-Хлопушка найдена! Главный CTA должен быть заметен сразу, а таймер — добавлять азарт, не тревогу.",
+      ];
+      const whispers = [
+        "«Красный — это ягодка на торте, не весь торт. Выбери три спокойных цвета и один акцент».",
+        "«Снежинка любит сетку 8 px. Отступы 8, 16 и 24 — и хаос станет узором».",
+        "«Колокольчики звенят в унисон: один стиль и одинаковая толщина линии».",
+        "«Два шрифта — максимум. Заголовок может мечтать, текст должен читаться».",
+        "«Покажи главную кнопку сразу. Таймер — это искра, а не пожарная сирена».",
+      ];
+      let found = new Set(),
+        timeLeft = 180,
+        timerInterval = null,
+        nightMode = false,
+        ending = null;
+      const $ = (s) => document.querySelector(s);
+      function toast(msg) {
+        const t = $("#toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        clearTimeout(toast.t);
+        toast.t = setTimeout(() => t.classList.remove("show"), 2600);
+      }
+      function updateCount() {
+        $("#foundCount").textContent = `${found.size}/5`;
+        $("#readyPercent").textContent = `${found.size * 20}%`;
+        $("#readyBar").style.width = `${found.size * 20}%`;
+        document.querySelectorAll(".artifact").forEach((el, i) => {
+          el.classList.toggle("unlocked", found.has(i));
+          el.classList.toggle("locked", !found.has(i));
+        });
+      }
+      function findArtifact(i) {
+        if (found.has(i)) {
+          toast("Эта снежинка уже в коллекции ✨");
+          return;
+        }
+        if (i === 2 && !nightMode) {
+          $("#mapWhisper").textContent =
+            "Витрина блестит, но снежный шар скрыт в тени. Переключи слайдер на ночь!";
+          toast("Некоторые артефакты видны только ночью 🌙");
+          return;
+        }
+        if (i === 3 && !nightMode) {
+          $("#mapWhisper").textContent =
+            "Ёлочный шар прячется в ночных огнях. Попробуй сменить время суток.";
+          toast("Секретный объект любит темноту 🌙");
+          return;
+        }
+        found.add(i);
+        const b = document.querySelector(`.window[data-item="${i}"]`);
+        b.classList.add("found");
+        b.querySelector("span").textContent = ["🎨", "▦", "🔔", "Aa", "🎉"][i];
+        b.querySelector(".num").textContent = "✓";
+        b.disabled = true;
+        $("#mapWhisper").textContent = tips[i];
+        updateCount();
+        toast(`❄ ${names[i]} найдена!`);
+        if (found.size === 5)
+          toast("Все 5 снежинок собраны. Магия дизайна восстановлена!");
+      }
+      document
+        .querySelectorAll(".window")
+        .forEach((b) =>
+          b.addEventListener("click", () => findArtifact(+b.dataset.item)),
+        );
+      document.querySelectorAll(".theme-choice").forEach((b) =>
+        b.addEventListener("click", () => {
+          document.body.classList.remove("cozy", "ice");
+          document.body.classList.add(b.dataset.theme);
+          document
+            .querySelectorAll(".theme-choice")
+            .forEach((x) => x.classList.toggle("active", x === b));
+          toast(
+            b.dataset.theme === "cozy"
+              ? "Уютная сказка выбрана 🧣"
+              : "Ледяная сказка выбрана 🌙",
+          );
+        }),
+      );
+      $("#timeSlider").addEventListener("input", (e) => {
+        nightMode = +e.target.value >= 50;
+        const art = $("#nightIllustration");
+        art.classList.toggle("night", nightMode);
+        art.querySelector(".scene-moon").textContent = nightMode ? "🌙" : "☀️";
+        $("#whisperText").textContent = nightMode
+          ? "Ночь пришла! Скрытые объекты проявились — вернись к карте и открой окошки 3 и 4."
+          : "Дневной свет показывает витрины, но часть магии пока скрыта.";
+        if (nightMode) {
+          timeLeft = Math.min(timeLeft, 60);
+          updateTimer();
+          toast("Ночь раскрыла секреты ярмарки 🌙");
+        }
+      });
+      $("#whisperBtn").addEventListener("click", () => {
+        const next = found.size < 5 ? found.size : 4;
+        $("#whisperText").textContent = whispers[next];
+        toast("Снежинка прошептала подсказку ❄");
+      });
+      $("#ctaFind").addEventListener("click", () => {
+        if (!found.has(4)) findArtifact(4);
+        else toast("Главная кнопка уже спасена! Выбирай финал ✨");
+      });
+      function updateTimer() {
+        let t = timeLeft;
+        const m = String(Math.floor(t / 60)).padStart(2, "0"),
+          s = String(t % 60).padStart(2, "0");
+        const value = `${m}:${s}`;
+        $("#topTimer").textContent = value;
+        $("#bigTimer").textContent = value;
+        $("#finalTimer").textContent = found.size === 5 ? "00:10" : value;
+      }
+      function startTimer() {
+        if (timerInterval) clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+          if (timeLeft > 0) {
+            timeLeft--;
+            updateTimer();
+          } else {
+            clearInterval(timerInterval);
+            toast("Полночь близко — пора принимать решение!");
+          }
+        }, 1000);
+      }
+      function chooseEnding(which) {
+        ending = which;
+        document
+          .querySelectorAll(".ending")
+          .forEach((e) => e.classList.remove("chosen"));
+        $("#ending" + which).classList.add("chosen");
+        const r = $("#result");
+        r.classList.add("show");
+        if (which === "A") {
+          $("#resultTitle").textContent = "🎆 Ярмарка открыта!";
+          $("#resultText").textContent =
+            "Огни вспыхнули, музыка заиграла, и первые гости вошли на площадь. Мила добавила счётчик «5/5 снежинок найдено» и поняла: дизайн — это работающая дверь, а не идеальная картинка. Она получила благодарность и уверенность — и теперь знает, что выпускать вовремя тоже часть мастерства.";
+        } else {
+          $("#resultTitle").textContent = "💎 Красиво… но уже после полуночи";
+          $("#resultText").textContent =
+            "Мила довела ледяную версию до совершенства, но часть гостей уже ушла спать. Ярмарка всё же открылась — с тёплым блоком «Ярмарка продлена». В портфолио появился эффектный кейс с пометкой: сначала CTA и сроки, потом полировка. Идеал без дедлайна не спасает.";
+        }
+        r.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      function restart() {
+        found.clear();
+        timeLeft = 180;
+        nightMode = false;
+        ending = null;
+        document.body.classList.remove("cozy");
+        document.body.classList.add("ice");
+        document.querySelectorAll(".window").forEach((b, i) => {
+          b.classList.remove("found");
+          b.disabled = false;
+          b.querySelector("span").textContent = ["✨", "🧤", "🔮", "🔴", "📮"][
+            i
+          ];
+          b.querySelector(".num").textContent = i + 1;
+        });
+        document
+          .querySelectorAll(".artifact")
+          .forEach((e) => e.classList.remove("unlocked"));
+        document
+          .querySelectorAll(".ending")
+          .forEach((e) => e.classList.remove("chosen"));
+        $("#result").classList.remove("show");
+        $("#timeSlider").value = 0;
+        $("#nightIllustration").classList.remove("night");
+        $("#nightIllustration .scene-moon").textContent = "☀️";
+        $("#mapWhisper").textContent =
+          "Шёпот снежинки: нажми на окошко — вдруг там что-то блестит.";
+        updateCount();
+        updateTimer();
+        document.querySelector("#start").scrollIntoView({ behavior: "smooth" });
+        startTimer();
+      }
+      window.addEventListener("scroll", () => {
+        const max = document.documentElement.scrollHeight - innerHeight;
+        $("#progress").style.width =
+          (max > 0 ? (scrollY / max) * 100 : 0) + "%";
+      });
+      const snow = $("#snow");
+      for (let i = 0; i < 26; i++) {
+        const f = document.createElement("span");
+        f.className = "flake";
+        f.textContent = ["❄", "✧", "·"][i % 3];
+        f.style.left = Math.random() * 100 + "%";
+        f.style.animationDuration = 8 + Math.random() * 12 + "s";
+        f.style.animationDelay = -Math.random() * 18 + "s";
+        f.style.fontSize = 10 + Math.random() * 14 + "px";
+        snow.appendChild(f);
+      }
+      updateCount();
+      updateTimer();
+      startTimer();
+    </script>
+  </body>
+</html>
